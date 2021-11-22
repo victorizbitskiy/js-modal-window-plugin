@@ -1,3 +1,6 @@
-$.modal = function() {
-  
+$.modal = function (options) {
+  return {
+    open() { },
+    close() { }
+  }
 }
