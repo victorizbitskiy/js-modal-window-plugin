@@ -4,6 +4,12 @@
   z-index: 1000;
 }
 
+.vmodal.hide .modal-overlay,
+.vmodal.hide .modal-window {
+  opacity: 1;
+  z-index: 1000;
+}
+
 .vmodal.open .modal-window {
   transform: translateY(100px);
 }
@@ -12,7 +18,16 @@
   background: rgba(0, 0, 0, 0.5);
 }
 
-.modal-window, .modal-overlay {
+.vmodal.hide .modal-window {
+  transform: translateY(-200px);
+}
+
+.vmodal.hide .modal-overlay {
+  background: rgba(0, 0, 0, 0);
+}
+
+.modal-window,
+.modal-overlay {
   opacity: 0;
   z-index: -1;
 }
