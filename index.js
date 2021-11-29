@@ -4,6 +4,23 @@ const fruits = [
 {id: 1, title: 'Манго', price: 20, img: 'https://travel.miruvashihnog.ru/wp-content/uploads/2017/03/mango-1-300x199.jpg'}
 ]
 
+const toHTML = fruit => `
+<div class="col">
+  <div class="card">
+    <img class="card-img-top" style="height: 300px; width: 400px;" src="${fruit.img}" alt="${fruit.title}"/>
+    <div class="card-body">
+      <h5 class="card-title">${fruit.title}</h5>
+      <a href="#" class="btn btn-primary">Посмотреть цену</a>
+      <a href="#" class="btn btn-danger">Удалить</a>
+    </div>
+  </div>
+</div>
+`
+function render() {
+  document.querySelector('#fruits').innerHTML = fruits.map(toHTML) // fruits.map(fruit => toHTML(fruit))
+}
+
+render()
 
 const modal = $.modal({
   title: 'Victor Modal',
