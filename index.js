@@ -1,7 +1,7 @@
 const fruits = [
-{id: 1, title: 'Яблоки', price: 20, img: 'https://e1.edimdoma.ru/data/ingredients/0000/2374/2374-ed4_wide.jpg?1487746348'},
-{id: 1, title: 'Апельсины', price: 20, img: 'https://www.prismamarket.ru/upload/iblock/9c0/2000650200001_Apelsiny.PNG.png'},
-{id: 1, title: 'Манго', price: 20, img: 'https://travel.miruvashihnog.ru/wp-content/uploads/2017/03/mango-1-300x199.jpg'}
+  { id: 1, title: 'Яблоки', price: 20, img: 'https://e1.edimdoma.ru/data/ingredients/0000/2374/2374-ed4_wide.jpg?1487746348' },
+  { id: 1, title: 'Апельсины', price: 20, img: 'https://www.prismamarket.ru/upload/iblock/9c0/2000650200001_Apelsiny.PNG.png' },
+  { id: 1, title: 'Манго', price: 20, img: 'https://travel.miruvashihnog.ru/wp-content/uploads/2017/03/mango-1-300x199.jpg' }
 ]
 
 const toHTML = fruit => `
@@ -16,8 +16,10 @@ const toHTML = fruit => `
   </div>
 </div>
 `
+
 function render() {
-  document.querySelector('#fruits').innerHTML = fruits.map(toHTML) // fruits.map(fruit => toHTML(fruit))
+  const html = fruits.map(toHTML).join('') // fruits.map(fruit => toHTML(fruit)).join('')
+  document.querySelector('#fruits').innerHTML = html
 }
 
 render()
@@ -31,14 +33,18 @@ const modal = $.modal({
   `,
   width: '400px',
   footerButtons: [
-    {text: 'Ok', type: 'primary', handler() {
-      console.log('Primary btn clicked')
-      modal.close()
-    }},
-    {text: 'Cancel', type: 'danger', handler() {
-      console.log('Danger btn clicked')
-      modal.close()
-    }},
+    {
+      text: 'Ok', type: 'primary', handler() {
+        console.log('Primary btn clicked')
+        modal.close()
+      }
+    },
+    {
+      text: 'Cancel', type: 'danger', handler() {
+        console.log('Danger btn clicked')
+        modal.close()
+      }
+    },
 
   ]
 })
