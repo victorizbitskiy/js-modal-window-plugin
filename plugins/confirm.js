@@ -21,6 +21,6 @@ $.confirm = function (options) {
       ]
     })
 
-    modal.open()
+     setTimeout(() => { modal.open() }, 100)
   })
 }
