@@ -1,4 +1,4 @@
-const fruits = [
+let fruits = [
   { id: 1, title: 'Яблоки', price: 20, img: 'https://e1.edimdoma.ru/data/ingredients/0000/2374/2374-ed4_wide.jpg?1487746348' },
   { id: 2, title: 'Апельсины', price: 30, img: 'https://www.prismamarket.ru/upload/iblock/9c0/2000650200001_Apelsiny.PNG.png' },
   { id: 3, title: 'Манго', price: 42, img: 'https://travel.miruvashihnog.ru/wp-content/uploads/2017/03/mango-1-300x199.jpg' }
@@ -55,7 +55,8 @@ document.addEventListener('click', event => {
       title: 'Вы уврены?',
       content: `<p>Вы удаляете фрукт: <strong>${fruit.title}</strong></p>`
     }).then(() => {
-      console.log('Remove')
+      fruits = fruits.filter(f => f.id !== id)
+      render()
     }).catch(() => {
       console.log('Cancel')
     })
